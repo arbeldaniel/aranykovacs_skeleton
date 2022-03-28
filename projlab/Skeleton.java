@@ -1,8 +1,5 @@
 package projlab;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -11,7 +8,6 @@ import static projlab.Main.scanner;
 
 public class Skeleton {
 
-    @Test
     public void VirologistTriesToMove() throws IOException {
         logger.printCall();
         Field f1 = new Field();
@@ -32,46 +28,27 @@ public class Skeleton {
             c = scanner.nextInt();
         }
         v1.move(c-1);
-        try {
-            Assert.assertEquals(v1.getField(), f2);
-        }
-        catch (AssertionError e) {
-            System.out.println("VirologistTriesToMove() failed.");
-        }
         logger.returnCall();
     }
 
-    @Test
     public void VirologistTriesToMakeUnction() throws IOException {
         logger.printCall();
         Virologist v = new Virologist();
         Unction u = new Unction();
-        try {
-            Assert.assertTrue(v.makeUnction(u));
-        }
-        catch(AssertionError e) {
-            System.out.println("VirologistTriesToMakeUnction() failed.");
-        }
+        v.makeUnction(u);
         logger.returnCall();
     }
 
-    @Test
     public void VirologistTriesToUseUnctionOnItself() {
         logger.printCall();
         Virologist v = new Virologist();
         Unction u = new Unction();
         v.addUnction(u);
         ArrayList<Unction> unctions = v.getUnctions();
-        try {
-            Assert.assertTrue(v.useUnction(unctions.get(0)));
-        }
-        catch (AssertionError e) {
-            System.out.println("VirologistTriesToUseUnctionOnItself() failed.");
-        }
+        v.useUnction(unctions.get(0));
         logger.returnCall();
     }
 
-    @Test
     public void VirologistTriesToUseUnctionOnOther() throws IOException {
         logger.printCall();
         Virologist v1 = new Virologist();
@@ -88,7 +65,6 @@ public class Skeleton {
         logger.returnCall();
     }
 
-    @Test
     public void VirologistTriesToStealFromOtherVirologist() throws IOException {
         logger.printCall();
         Virologist v1 = new Virologist();
@@ -100,48 +76,30 @@ public class Skeleton {
         logger.returnCall();
     }
 
-    @Test
     public void VirologistTriesToPickUpMaterial() throws IOException {
         logger.printCall();
         Virologist v = new Virologist();
         Storage s = new Storage();
         s.accept(v);
-        try {
-            Assert.assertTrue(v.getField().takeStuff(v));
-        }
-        catch (AssertionError e) {
-            System.out.println("VirologistTriesToPickUpMaterial() failed.");
-        }
+        v.getField().takeStuff(v);
         logger.returnCall();
     }
 
-    @Test
     public void VirologistTriesToPickUpEquipment() throws IOException {
         logger.printCall();
         Virologist v = new Virologist();
         Storage s = new Storage();
         s.accept(v);
-        try {
-            Assert.assertTrue(v.getField().takeStuff(v));
-        }
-        catch (AssertionError e) {
-            System.out.println("VirologistTriesToPickUpEquipment() failed.");
-        }
+        v.getField().takeStuff(v);
         logger.returnCall();
     }
 
-    @Test
     public void VirologistTriesToReadCode() throws IOException {
         logger.printCall();
         Virologist v = new Virologist();
         Laboratory l = new Laboratory();
         l.accept(v);
-        try {
-        Assert.assertTrue(v.getField().takeStuff(v));
-        }
-        catch (AssertionError e) {
-            System.out.println("VirologistTriesToReadCode() failed.");
-        }
+        v.getField().takeStuff(v);
         logger.returnCall();
     }
 }
