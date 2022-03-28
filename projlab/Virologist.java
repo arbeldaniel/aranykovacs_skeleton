@@ -191,23 +191,16 @@ public class Virologist {
         char ca = scanner.next().charAt(0);
         boolean ret = true;
         switch(ca) {
-            case 'c':
-            Cloak c = new Cloak();
-            ret = c.apply(u, this);
-            break;
-
-            case 'g':
-            Glove g = new Glove();
-            ret = g.apply(u, this);
-            break;
-
-            case 'p':
-            Protection p = new Protection();
-            ret = p.apply(Action.UseUnction);
-            break;
-
-            default:
-            break;
+            case 'c': Cloak c = new Cloak();
+                ret = c.apply(u, this);
+                break;
+            case 'g': Glove g = new Glove();
+                ret = g.apply(u, this);
+                break;
+            case 'p': Protection p = new Protection();
+                ret = p.apply(Action.UseUnction);
+                break;
+            default: break;
         }
         logger.returnCall();
         return ret;
